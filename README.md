@@ -11,3 +11,6 @@ display_Results will take a file location and display the results. It's importan
   normY.py and normY_hold_Hannel.py will output channel by channel data
   
 The On_Computer files that are not in a folder are files that you can run and get results for on your local machine in a jupyter notebook.
+
+Right away you'll only be able to run simulated_On_Computer as this is the only one that uses simulated data. It has a AR3 model and you can change the length (amount) of the data.
+simulated_On_Computer has toggels for showing graphs for every channel and a toggel variable to choose between using the norm of Y or the length of Y in the regularization parameter.
