@@ -1,0 +1,24 @@
+# trial-chtc.sub
+universe = vanilla
+log = log/L$(name)p$(mem)r$(ridge)c$(cv).log #log/ can be changed to a more discriptive folder such as log_description
+
+executable = chtcPythonShell.sh
+
+arguments = $(name) $(mem) $(ridge) $(cv)
+
+output = output/$(name)p$(mem)r$(ridge)c$(cv).out #output/ can be changed to a more discriptive folder such as output_description
+
+error = err/error$(name)p$(mem)r$(ridge)c$(cv).err #err can be changed to a more discriptive folder
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = $(name).mat, http://proxy.chtc.wisc.edu/SQUID/chtc/python38.tar.gz, packages.tar.gz, norm_LengthY.py, functionList.py 
+# change the norm_LengthY.py file with the main worker function you want to use
+
+
+
+request_cpus = 1
+request_memory = 3GB
+request_disk = 3.5MB
+
+queue name, mem, ridge, cv from chtcRunList.txt #we use the chtcRunList.txt to give arguments for the jobs we are submitting
